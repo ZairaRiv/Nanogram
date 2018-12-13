@@ -1,0 +1,126 @@
+li {
+  float: left;
+  list-style-type: none;
+  text-align: center;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+  width: 300px;
+}
+body {
+  background-color: orange;
+  color: #ffffff;
+  font-family: "Allerta Stencil";
+  font-size: 22px;
+  background-image: url("westernTown.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*#backgroundID {
+  background-color: orange;
+  color: #ffffff;
+  font-family: "Allerta Stencil";
+  font-size: 22px;
+  z-index: -1;
+  position: absolute;
+}*/
+
+h1 {
+  font-family: "Allerta Stencil";
+  font-size: 35px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Allerta Stencil";
+  font-size: 22px;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Allerta Stencil";
+  font-size: 20px;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Allerta Stencil";
+  font-size: 18px;
+  text-align: center;
+}
+/*
+#maintable {
+  font-size: 22px;
+  width: 700px;
+  border: 1px;
+}*/
+
+td {
+  text-align: center;
+  height: 100px;
+}
+
+/*for auto sizing images*/
+img.resize {
+  width: 100%; /* you can use % */
+  height: auto;
+  object-fit: contain;
+}
+
+/*to allow side by side images in play.php*/
+.column {
+  float: left;
+  width: 30%;
+  padding: 1px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/**to style all buttons for the moment**/
+#newButton {
+  width: 44px;
+  height: 23px;
+  background-color: buttonface;
+  cursor: default;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(169, 169, 169);
+  border-image: initial;
+  padding: 1px 2px;
+}
+/**to style the size button**/
+#size,
+#cheat,
+#playGame,
+#next,
+#repeat,
+#makeGame {
+  background-color: (169, 169, 169);
+  box-sizing: border-box;
+  border: none;
+  color: black;
+  border-width: 2px;
+  border-style: outset;
+  border-color: gray;
+  border-image: initial;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Allerta Stencil;
+  font-size: 16px;
+}
+
+/**for the array to work without messing up the grid***/
+#lineArray {
+  font-size: 23px;
+  line-height: 200%;
+}

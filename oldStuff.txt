@@ -1,0 +1,123 @@
+/*********************   JAVASCRIPT   ***********************************/
+//drawTable(); // used to call itself here
+function drawTable() {
+    let table = document.createElement('table');
+    table.id = "board"; // give the table an id so we can manipulate it later ************************
+    let row = [];
+    document.getElementById('tableArea').innerHTML="";
+    console.log(size);
+    for (let i = 0; i < size; i++) {
+        let tr = document.createElement('tr');
+         let col = [];
+        for (let j = 0; j < size; j++) {
+            //makes a copy of the square 
+             col[j]= copyObject(square);
+            let td = document.createElement('td');
+            td.innerHTML = 'x'; // just to make the table show
+
+            //to be able to pass the square coords into it 
+            td.onclick= function(){
+                squareClick(this,i,j);
+            }
+
+            tr.appendChild(td); // append the the tr instead
+        }
+        
+        table.align = "center";
+        table.appendChild(tr);
+       
+        //I think I should call the color funct in func.js at this point for user to choose a color
+        table.style.backgroundColor = 'red';
+        row[i]=col;
+    }
+}
+
+
+/******* tried using this for the array display *******/
+//single row Table for the picross array display
+function singleRowTable(){
+    //same Elem Id for now and will change once it works to something else 
+    document.getElementById("singleRow").style.display="none";
+    let table = document.createElement('table');
+    document.getElementById('tableSetting').innerHTML="";
+    for (let m = 0; m < size; m++){
+        let tr = document.createElement('tr');
+        for (let n = 0; n < 0; n++){
+            let td  = document.createElement('td');
+            td.innerHTML = 'm'; //just to show what I am doing so far
+            tr.appendChild(td); // append the the tr instead
+            //td.width = '100px';
+            //td.height = '100px';
+        }
+        table.align = "center";
+        table.appendChild(tr);
+    }
+
+    document.getElementById('tableSetting').appendChild(table);
+    table.style.border = '10px solid green';  
+    table.style.borderCollapse = 'collapse';
+}
+
+//single column table for picross array table 
+function singleColTable(){
+    //same Elem ID for now and will change once it works to something else 
+    document.getElementById("singleCol").style.display="none";
+    let table = document.createElement('table');
+    document.getElementById('tableSetting').innerHTML="";
+    for (let m = 0; m < 0; m++){
+        let tr = document.createElement('tr');
+        for (let n = 0; n < size; n++){
+            let td  = document.createElement('td');
+            td.innerHTML = 'm'; //just to show what I am doing so far
+            tr.appendChild(td); // append the the tr instead
+            td.width = '100px';
+            td.height = '100px';
+        }
+        table.align = "center";
+        table.appendChild(tr);
+    }
+
+    document.getElementById('tableSetting').appendChild(table);
+    table.style.border = '10px solid green';  
+    table.style.borderCollapse = 'collapse';
+}
+
+
+old get levels.php
+<?php
+//Connecting to the server
+$servername = "localhost"; // default server name
+$username = "Zaira"; // user name that you created
+$password = ""; // password that you created
+$dbname = "test";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error . "<br>");
+}
+
+$var = $_GET["size"];
+
+$sql = "SELECT idlevels, jsonData, name FROM levels where gameType = $var";
+$result = $conn->query($sql);
+$output = array();
+$output = $result->fetch_all(MYSQLI_ASSOC);
+
+//need to select different levels for the bigger grid
+echo json_encode($output);
+
+// close the connection, probably good to do at the end??
+$conn->close();
+
+
+replaced
+$servername = "localhost"; // default server name
+$username = "Zaira"; // user name that you created
+$password = ""; // password that you created
+$dbname = "test";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
